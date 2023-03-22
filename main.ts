@@ -1,0 +1,22 @@
+ESP8266ThingSpeak.connectWifi(
+SerialPin.P0,
+SerialPin.P1,
+BaudRate.BaudRate115200,
+"planta1B_Guest",
+"salvadorrueda23"
+)
+basic.forever(function () {
+    ESP8266ThingSpeak.connectThingSpeak(
+    "api.thingspeak.com",
+    "AMHSYD7Z5OK07BRC",
+    input.temperature(),
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+    )
+    ESP8266ThingSpeak.wait(5000)
+})
